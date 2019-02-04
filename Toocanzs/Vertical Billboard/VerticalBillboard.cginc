@@ -23,9 +23,9 @@ v2f vert(appdata v)
 		float3 cameraPos = _WorldSpaceCameraPos;
 	#endif
 
-	float3 foward = normalize(cameraPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz);
-	float3 right = cross(foward, float3(0, 1, 0));
-	float yawCamera = atan2(right.x, foward.x) - UNITY_PI / 2;//Add 90 for quads to face towards camera
+	float3 forward = normalize(cameraPos - mul(unity_ObjectToWorld, float4(0, 0, 0, 1)).xyz);
+	float3 right = cross(forward, float3(0, 1, 0));
+	float yawCamera = atan2(right.x, forward.x) - UNITY_PI / 2;//Add 90 for quads to face towards camera
 	float s, c;
 	sincos(yawCamera, s, c);
 
