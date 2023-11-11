@@ -2,12 +2,16 @@
 {
 	float4 vertex : POSITION;
 	float2 uv : TEXCOORD0;
+
+	UNITY_VERTEX_INPUT_INSTANCE_ID
 };
 
 struct v2f
 {
 	float2 uv : TEXCOORD0;
 	float4 vertex : SV_POSITION;
+
+	UNITY_VERTEX_OUTPUT_STEREO
 };
 
 sampler2D _MainTex;
@@ -16,6 +20,10 @@ float4 _MainTex_ST;
 v2f vert(appdata v)
 {
 	v2f o;
+
+	UNITY_SETUP_INSTANCE_ID(v);
+	UNITY_INITIALIZE_OUTPUT(v2f, o);
+	UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
 	#if defined(USING_STEREO_MATRICES)
 		float3 cameraPos = lerp(unity_StereoWorldSpaceCameraPos[0], unity_StereoWorldSpaceCameraPos[1], 0.5);
