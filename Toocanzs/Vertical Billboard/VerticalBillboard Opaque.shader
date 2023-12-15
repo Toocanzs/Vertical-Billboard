@@ -6,7 +6,11 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType" = "Opaque"}
+		Tags
+		{
+			"RenderType" = "Opaque"
+			"DisableBatching" = "True"
+		}
 		Pass
 		{
 			CGPROGRAM
