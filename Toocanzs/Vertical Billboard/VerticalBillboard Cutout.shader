@@ -5,9 +5,13 @@
 		_MainTex ("Texture", 2D) = "white" {}
 		_Cutout("Cutout Threshold", Range(0,1)) = 0
 	}
-		SubShader
+	SubShader
 	{
-		Tags { "RenderType" = "Opaque"}
+		Tags
+		{
+			"RenderType" = "Opaque"
+			"DisableBatching" = "True"
+		}
 		Pass
 		{
 			CGPROGRAM
